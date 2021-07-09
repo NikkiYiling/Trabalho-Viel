@@ -1,19 +1,8 @@
-#sharpening
-import cv2
-#laplaciano
-img_in = cv2.imread('data/Fig0338(a)(blurry_moon).tif',0)
-from google.colab.patches import cv2_imshow
+# anotacoes sobre o codigo `moon.py`
 
-kernel = np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
-img_out = cv2.filter2D(img_in, -1,kernel)
+*por: Marcos Augusto e Nicole Alves Santana*
 
-cv2_imshow(img_in)
-cv2.waitKey(0)
-cv2_imshow(img_out)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-# Blur the image
-gauss = cv2.GaussianBlur(image, (7,7), 0)
-# Apply Unsharp masking
-unsharp_image = cv2.addWeighted(image, 2, gauss, -1, 0)
+O código basicamente vai desfocar a imagem e aplicar uma máscara de nitidez que
+melhora a qualidade da imagem, algo que eu nem sabia que dava para fazer mas é
+bem útil. Mesmo tendo poucas linhas já faz algo surpreendente.  Uma imagem de
+lua que antes não tinha muita qualidade, vai ficar bem melhor.
